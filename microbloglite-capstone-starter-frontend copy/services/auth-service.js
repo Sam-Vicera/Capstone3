@@ -5,12 +5,13 @@
 class AuthService
 {
 
-    apiBaseURL = "http://localhost:5000/"
+    apiBaseURL = "http://localhost:5000"
     // Primary Server:
     //      http://microbloglite.us-east-2.elasticbeanstalk.com/
     // Backup servers:
     //      https://microbloglite.herokuapp.com/
     //      https://microbloglite.onrender.com/
+
 
     // You can use this function to get the login data of the logged-in
     // user (if any). It returns either an object including the username
@@ -65,7 +66,7 @@ class AuthService
     // which you may include in various pages in your app. Again, READ this
     // function and you will probably want to re-use parts of it for other
     // `fetch()` requests you may need to write.
-    async ogout()
+    async logout()
     {
         const loginData = getLoginData()
 

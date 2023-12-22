@@ -22,7 +22,10 @@
     <title>/POSTS</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="../auth.js"></script>
+    
+    <script src="../services/services-base.js"></script>
+    <script src="../services/auth-service.js"></script>
+    <script src="../services/posts-service.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
     </script>
