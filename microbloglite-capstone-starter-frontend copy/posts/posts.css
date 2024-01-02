@@ -1,4 +1,9 @@
 /* Posts Page CSS */
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(35, 101, 255) 65%, rgb(255, 255, 255) 75%);
+}
+
 main {
     margin: 0;
     padding: 0;
@@ -6,8 +11,6 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(12,0,52,1) 35%, rgba(0,0,0,0.6) 100%);
 }
 
 .gallery {
@@ -164,4 +167,51 @@ main {
 
 .gallery-nav li.gallery-item-selected {
     background: #555;
+}
+
+.sidepanel {
+    height: 250px;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgb(230, 228, 255);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidepanel a {
+    padding: 5px 5px 5px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidepanel a:hover {
+    color: #305aff;
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 25px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #aecfff77;
 }
