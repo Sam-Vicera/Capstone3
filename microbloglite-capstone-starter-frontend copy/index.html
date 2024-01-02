@@ -17,14 +17,13 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    
     />
+    <!-- Global CSS -->
     <link rel="stylesheet" href="./styles/global.css" />
-
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./styles/landing.css" />
 
@@ -32,14 +31,14 @@
 
     <script src="./services/auth-service.js"></script>
     <script src="./landing.js"></script>
-    <script src="registration-script.js"></script>
+    <script src="./registration-script.js"></script>
   </head>
   <body>
     <header>
       <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
     </header>
 
-    <div class="container" id="container">
+    <main class="container" id="container">
       <div class="form-container sign-up">
         <form>
           <h1>Create Account</h1>
@@ -54,14 +53,14 @@
             ></a>
           </div>
           <span>or use your email for registeration</span>
-          
+
           <input type="text" placeholder="Name" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <button>Sign Up</button>
         </form>
       </div>
-     
+
       <div class="form-container sign-in">
         <form>
           <h1>Sign In</h1>
@@ -76,32 +75,14 @@
             ></a>
           </div>
           <span>or use your email password</span>
-          
+
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <a href="#">Forget Your password?</a>
           <button>Sign In</button>
         </form>
       </div>
-    </div>
-    <!-- <main>
-
-        <form id="login">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" minlength="3">
-            </div>
-
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" minlength="6">
-            </div>
-
-            <button id="loginButton" type="submit">Login</button>
-        </form>
-
-    </main> -->
-
+    </main>
     <footer></footer>
   </body>
 </html>
