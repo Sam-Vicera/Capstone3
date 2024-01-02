@@ -13,6 +13,9 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
     <!-- Global CSS (CSS rules you want applied to all pages) -->
     <link rel="stylesheet" href="../global.css">
 
@@ -31,12 +34,66 @@
     </script>
 </head>
 <body>
-
+    <!-- Placeholder Bootstrap Navbar, converting to vertical alignment -->
     <header>
-        <h1>POSTS PAGE</h1>
+        <nav class="navbar navbar-expand-lg bg-light bg-gradient">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link active">Profile</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main></main>
+    <main>
+        <div class="gallery">
+           <div class="gallery-container">
+                <div class="gallery-item gallery-item-1 card text-center mb-3" style="width: 18rem;" data-index="1">
+                    <div class="card-body">
+                        <h5 class="card-title">Binary Bloggers</h5>
+                        <p class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-primary">Read about us!</a>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-2 card text-center mb-3" style="width: 18rem;" data-index="2">
+                    <div class="card-body">
+                        <h5 class="card-title">Binary Bloggers</h5>
+                        <p class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-primary">Read about us!</a>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-3 card text-center mb-3" style="width: 18rem;" data-index="3">
+                    <div class="card-body">
+                        <h5 class="card-title">Binary Bloggers</h5>
+                        <p class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-primary">Read about us!</a>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-4 card text-center mb-3" style="width: 18rem;" data-index="4">
+                    <div class="card-body">
+                        <h5 class="card-title">Binary Bloggers</h5>
+                        <p class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-primary">Read about us!</a>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-5 card text-center mb-3" style="width: 18rem;" data-index="5">
+                    <div class="card-body">
+                        <h5 class="card-title">Binary Bloggers</h5>
+                        <p class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-primary">Read about us!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-controls"></div> 
+        </div>
+    </main>
 
     <footer></footer>
 
