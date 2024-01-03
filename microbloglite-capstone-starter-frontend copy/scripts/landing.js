@@ -1,31 +1,57 @@
 /* Landing Page JavaScript */
 
-"use strict";
 
-let authService
+
+let authService;
+ authService = new AuthService()
 
 document.addEventListener("DOMContentLoaded", () => {
     
 const container = document.getElementById('container');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
+const registerBtnSwitch = document.getElementById('register');
+const loginBtnSwitch = document.getElementById('login');
 
-registerBtn.addEventListener('click', () => {
+const createUserButton = document.getElementById('createUserButton')
+const signInButton = document.getElementById('signInButton')
+
+registerBtnSwitch.addEventListener('click', () => {
     container.classList.add("active");
 });
 
-loginBtn.addEventListener('click', () => {
+loginBtnSwitch.addEventListener('click', () => {
     container.classList.remove("active");
 });
-    
-    authService = new AuthService()
 
-    if(authService.isLoggedIn()) {
-        window.location.replace("/posts")
+createUserButton.addEventListener('click', () => {
+    let userName = document.getElementById('registerUserName').value;
+    let userFullName = document.getElementById('registerFullName').value;
+    let userPassword = document.getElementById('registerPassword').value;
+
+    let registeredUserInformation = {
+        username: userName,
+        fullName: userFullName,
+        password: userPassword
     }
+    
 
-    const loginForm = document.querySelector("#login");
-    loginForm.addEventListener("submit", login)
+    authService.register(registeredUserInformation);
+
+});
+
+signInButton.addEventListener('click', () => {
+    
+});
+
+
+    
+    
+
+    // if(authService.isLoggedIn()) {
+    //     window.location.replace("/posts")
+    // }
+
+    // const loginForm = document.querySelector("#login");
+    // loginForm.addEventListener("submit", login)
 
 })
 
@@ -47,4 +73,5 @@ function login (event) {
     // Time to actually process the login using the function from auth.js!
     login(loginData);
 };
+
 

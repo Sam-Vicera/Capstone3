@@ -1,11 +1,9 @@
 /* auth.js provides LOGIN-related functions */
 
-"use strict"
-
 class AuthService
 {
 
-    apiBaseURL = "http://localhost:5000"
+    apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com"
     // Primary Server:
     //      http://microbloglite.us-east-2.elasticbeanstalk.com/
     // Backup servers:
@@ -50,7 +48,7 @@ class AuthService
             body: JSON.stringify(loginData),
         }
 
-        return fetch(apiBaseURL + "/auth/login", options)
+        return fetch(this.apiBaseURL + "/auth/login", options)
             .then(response => response.json())
             .then(loginData =>
             {
@@ -59,6 +57,24 @@ class AuthService
 
                 return loginData
             })
+    }
+    
+    async register(registerData)
+    {
+        // POST /api/users
+        const options = {
+            method: "POST",
+            headers: {
+                // This header specifies the type of content we're sending.
+                // This is required for endpoints expecting us to send
+                // JSON data.
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registerData),
+        }
+
+        return fetch(this.apiBaseURL + "/api/users", options)
+            .then(response => response.json())
     }
 
 

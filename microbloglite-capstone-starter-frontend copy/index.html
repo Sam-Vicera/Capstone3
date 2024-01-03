@@ -34,7 +34,7 @@
    <title>Login to the Microblog Network!</title>
 
 
-   <script src="./services/auth-service.js"></script>
+   <script src="scripts/services/auth-service.js"></script>
    <script src="scripts/landing.js"></script>
  </head>
  <body>
@@ -62,11 +62,11 @@
              ><i class="fa-brands fa-linkedin-in"></i
            ></a>
          </div>
-         <span>or use your email for registeration</span>
-         <input type="text" placeholder="Name" />
-         <input type="email" placeholder="Email" />
-         <input type="password" placeholder="Password" />
-         <button>Sign Up</button>
+         <span>or create a username for registeration</span>
+         <input type="text" placeholder="FullName" id="registerFullName"/>
+         <input type="text" placeholder="UserName" id="registerUserName"/>
+         <input type="password" placeholder="Password" id="registerPassword" />
+         <button id="createUserButton">Sign Up</button>
        </form>
      </div>
      <div class="form-container sign-in">
@@ -83,12 +83,13 @@
            ></a>
          </div>
          <span>or use your email password</span>
-         <input type="email" placeholder="Email" />
+         <input type="username" placeholder="Username" />
          <input type="password" placeholder="Password" />
          <a href="#">Forget Your Password?</a>
-         <button>Sign In</button>
+         <button id="signInButton">Sign In</button>
        </form>
      </div>
+     
      <div class="toggle-container">
        <div class="toggle">
          <div class="toggle-panel toggle-left">
@@ -96,6 +97,7 @@
            <p>Enter your personal details to use all of site features</p>
            <button class="hidden" id="login">Sign In</button>
          </div>
+         
          <div class="toggle-panel toggle-right">
            <h1>Hello, Friend!</h1>
            <p>
@@ -107,6 +109,7 @@
      </div>
    </div>
  </main>
+
  <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
    <!-- Grid container -->
    <div class="p-4">
