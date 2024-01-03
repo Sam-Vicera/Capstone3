@@ -15,7 +15,7 @@ function loadProfile() {
                     })
 }
 
-function displayPosts() {
+function postsTemplate() {
     document.getElementById("postsDisplay").innerHTML = ""
 
     posts.forEach(category => {
