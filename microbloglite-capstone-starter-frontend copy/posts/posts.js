@@ -1,13 +1,12 @@
 /* Posts Page JavaScript */
 "use strict";
 
-let authService;
-let postsService;
+// let authService;
+// authService = new AuthService();
+// let postService;
+// postService = new PostService()
 
 document.addEventListener("DOMContentLoaded", () => {
-    authService = new AuthService();
-    postsService = new PostService();
-
     displayBlogPosts();
 })
 
@@ -78,8 +77,8 @@ function closeNav() {
 }
 
 function displayBlogPosts() {
-    let posts = postsService.getAll();
-    
+    let posts = postService.getAll();
+    console.log(posts)
 }
 
 const logoutBtn = querySelector('#logoutBtn').addEventListener("onclick", authService.logout())
