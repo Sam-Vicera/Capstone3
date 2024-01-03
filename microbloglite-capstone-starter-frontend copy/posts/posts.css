@@ -182,7 +182,7 @@ main {
     transition: 0.5s;
 }
 
-.sidepanel a {
+.sidepanel a, #logoutBtn {
     padding: 5px 5px 5px 25px;
     text-decoration: none;
     font-size: 25px;
@@ -191,7 +191,12 @@ main {
     transition: 0.3s;
 }
 
-.sidepanel a:hover {
+.sidepanel #logoutBtn {
+    border: none;
+    background-color: transparent;
+}
+
+.sidepanel a:hover, #logoutBtn:hover {
     color: #305aff;
 }
 

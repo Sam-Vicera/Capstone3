@@ -1,6 +1,9 @@
 /* Posts Page JavaScript */
 "use strict";
 
+let authService;
+authService = new AuthService();
+
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
 const galleryControls = ['previous', 'next'];
@@ -66,3 +69,5 @@ function openNav() {
 function closeNav() {
     document.querySelector('#sidepanel').style.width = '0';
 }
+
+const logoutBtn = querySelector('#logoutBtn').addEventListener("onclick", authService.logout())
