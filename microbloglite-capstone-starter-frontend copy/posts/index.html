@@ -36,20 +36,13 @@
 <body>
     <!-- Placeholder Bootstrap Navbar, converting to vertical alignment -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-light bg-gradient">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <div class="navbar-nav">
-                        <a href="#" class="nav-link active">Home</a>
-                        <a href="#" class="nav-link active">Profile</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div class="sidepanel" id="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="./profile.html"><i class="fa-regular fa-user me-3"></i>Profile</a>
+            <a href="./index.html"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Logout</a>
+        </div>
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+        <h1 class="display-1 text-center">Binary Bloggers</h1>
     </header>
 
     <main>
