@@ -17,7 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
     <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../styles/global.css">
+
+    <!-- Google Fonts, Share Tech Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./posts.css">
@@ -25,10 +30,9 @@
     <title>/POSTS</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    
-    <script src="../services/services-base.js"></script>
-    <script src="../services/auth-service.js"></script>
-    <script src="../services/posts-service.js"></script>
+    <script src="../scripts/services/services-base.js"></script>
+    <script src="../scripts/services/auth-service.js"></script>
+    <script src="../scripts/services/posts-service.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
     </script>

@@ -4,8 +4,8 @@ class PostService extends ServicesBase
 
     apiBaseUrl = ""
 
-    constructor()
-    {
+    constructor() {
+        super();
         this.apiBaseUrl = this.baseUrl + "/api/posts"
     }
 

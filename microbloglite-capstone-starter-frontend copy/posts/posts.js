@@ -1,12 +1,18 @@
 /* Posts Page JavaScript */
 "use strict";
 
-// let authService;
-// authService = new AuthService();
-// let postService;
-// postService = new PostService()
+let servicesBase;
+let authService;
+let postService;
 
 document.addEventListener("DOMContentLoaded", () => {
+    servicesBase = new ServicesBase();
+    authService = new AuthService();
+    postService = new PostService();
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", authService.logout());
+
     displayBlogPosts();
 })
 
@@ -77,8 +83,14 @@ function closeNav() {
 }
 
 function displayBlogPosts() {
-    let posts = postService.getAll();
-    console.log(posts)
+    let posts;
+    postService.getAll().then(data => {
+        posts = data;
+        console.log(posts);
+    })
 }
 
-const logoutBtn = querySelector('#logoutBtn').addEventListener("onclick", authService.logout())
+function addBlogPost() {
+    
+}
+
