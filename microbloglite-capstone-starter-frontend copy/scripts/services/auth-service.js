@@ -1,11 +1,9 @@
 /* auth.js provides LOGIN-related functions */
 
-"use strict"
-
 class AuthService
 {
 
-    apiBaseURL = "http://localhost:5000"
+    apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com"
     // Primary Server:
     //      http://microbloglite.us-east-2.elasticbeanstalk.com/
     // Backup servers:
@@ -50,15 +48,43 @@ class AuthService
             body: JSON.stringify(loginData),
         }
 
-        return fetch(apiBaseURL + "/auth/login", options)
+        return fetch(this.apiBaseURL + "/auth/login", options)
             .then(response => response.json())
             .then(loginData =>
             {
-                window.localStorage.setItem("login-data", JSON.stringify(loginData))
-                window.location.assign("/posts")  // redirect
+                if(loginData.token){
+                   sessionStorage.token = loginData.token
+                sessionStorage.username = loginData.username
 
-                return loginData
+                window.localStorage.setItem("login-data", JSON.stringify(loginData))
+                
+                
+                window.location.assign("http://127.0.0.1:5500/Capstone3/microbloglite-capstone-starter-frontend%20copy/profile.html")  // redirect
+
+                return loginData 
+                }
+                else{
+                    
+                }
             })
+    }
+    
+    async register(registerData)
+    {
+        // POST /api/users
+        const options = {
+            method: "POST",
+            headers: {
+                // This header specifies the type of content we're sending.
+                // This is required for endpoints expecting us to send
+                // JSON data.
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registerData),
+        }
+
+        return fetch(this.apiBaseURL + "/api/users", options)
+            .then(response => response.json())
     }
 
 
@@ -90,7 +116,7 @@ class AuthService
                 // We're using `finally()` so that we will continue with the
                 // browser side of logging out (below) even if there is an 
                 // error with the fetch request above.
-
+                sessionStorage.clear();
                 window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
                 window.location.assign("/index.html")  // redirect back to landing page
             })
