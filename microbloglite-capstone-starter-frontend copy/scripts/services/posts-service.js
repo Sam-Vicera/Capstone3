@@ -9,4 +9,13 @@ class PostService extends ServicesBase
         this.apiBaseUrl = this.baseUrl + "/api/posts"
     }
 
+    async getAll() {
+        return fetch(this.apiBaseUrl).then(response => response.json())
+    }
+
+    async getById(postId) {
+        let url = `${this.apiBaseUrl}/${postId}`;
+        return fetch(url).then(response => response.json())
+    }
+
 }

@@ -2,7 +2,14 @@
 "use strict";
 
 let authService;
-authService = new AuthService();
+let postsService;
+
+document.addEventListener("DOMContentLoaded", () => {
+    authService = new AuthService();
+    postsService = new PostService();
+
+    displayBlogPosts();
+})
 
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
@@ -58,9 +65,9 @@ class Carousel {
     }
 }
 
-const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-exampleCarousel.setControls();
-exampleCarousel.useControls();
+const ourCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
+ourCarousel.setControls();
+ourCarousel.useControls();
 
 /* Sidepanel Functionality */
 function openNav() {
@@ -68,6 +75,11 @@ function openNav() {
 }
 function closeNav() {
     document.querySelector('#sidepanel').style.width = '0';
+}
+
+function displayBlogPosts() {
+    let posts = postsService.getAll();
+    
 }
 
 const logoutBtn = querySelector('#logoutBtn').addEventListener("onclick", authService.logout())
