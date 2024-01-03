@@ -51,7 +51,9 @@ signInButton.addEventListener('click', (event) => {
 
     signInButton.disabled = true
     
-    authService.login(loginData)
+    authService.login(loginData).then(data =>{
+        
+    })
 });
 
 

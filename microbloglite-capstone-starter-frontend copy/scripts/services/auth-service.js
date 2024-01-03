@@ -52,10 +52,20 @@ class AuthService
             .then(response => response.json())
             .then(loginData =>
             {
-                window.localStorage.setItem("login-data", JSON.stringify(loginData))
-                window.location.assign("/posts/index.html")  // redirect
+                if(loginData.token){
+                   sessionStorage.token = loginData.token
+                sessionStorage.username = loginData.username
 
-                return loginData
+                window.localStorage.setItem("login-data", JSON.stringify(loginData))
+                
+                
+                window.location.assign("http://127.0.0.1:5500/Capstone3/microbloglite-capstone-starter-frontend%20copy/profile.html")  // redirect
+
+                return loginData 
+                }
+                else{
+                    
+                }
             })
     }
     
@@ -106,7 +116,7 @@ class AuthService
                 // We're using `finally()` so that we will continue with the
                 // browser side of logging out (below) even if there is an 
                 // error with the fetch request above.
-
+                sessionStorage.clear();
                 window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
                 window.location.assign("/index.html")  // redirect back to landing page
             })
