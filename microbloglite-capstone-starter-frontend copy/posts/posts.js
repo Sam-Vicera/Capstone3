@@ -56,6 +56,13 @@ class Carousel {
 }
 
 const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-
 exampleCarousel.setControls();
 exampleCarousel.useControls();
+
+/* Sidepanel Functionality */
+function openNav() {
+    document.querySelector('#sidepanel').style.width = '250px';
+}
+function closeNav() {
+    document.querySelector('#sidepanel').style.width = '0';
+}

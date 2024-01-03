@@ -38,8 +38,20 @@ createUserButton.addEventListener('click', () => {
 
 });
 
-signInButton.addEventListener('click', () => {
+signInButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const createdUsername = document.getElementById("userSignIn").value
+    const createdPassword = document.getElementById("userPassword").value
+
+    const loginData = {
+        username: createdUsername,
+        password: createdPassword
+    }
+
+    signInButton.disabled = true
     
+    authService.login(loginData)
 });
 
 
@@ -55,23 +67,23 @@ signInButton.addEventListener('click', () => {
 
 })
 
-function login (event) {
-    // Prevent the form from refreshing the page,
-    // as it will do by default when the Submit event is triggered:
-    event.preventDefault();
+// function login (event) {
+//     // Prevent the form from refreshing the page,
+//     // as it will do by default when the Submit event is triggered:
+//     event.preventDefault();
 
-    // We can use loginForm.username (for example) to access
-    // the input element in the form which has the ID of "username".
-    const loginData = {
-        username: loginForm.username.value,
-        password: loginForm.password.value,
-    }
+//     // We can use loginForm.username (for example) to access
+//     // the input element in the form which has the ID of "username".
+//     const loginData = {
+//         username: loginForm.username.value,
+//         password: loginForm.password.value,
+//     }
 
-    // Disables the button after the form has been submitted already:
-    loginForm.loginButton.disabled = true;
+//     // Disables the button after the form has been submitted already:
+//     loginForm.loginButton.disabled = true;
 
-    // Time to actually process the login using the function from auth.js!
-    login(loginData);
-};
+//     // Time to actually process the login using the function from auth.js!
+//     login(loginData);
+// };
 
 
