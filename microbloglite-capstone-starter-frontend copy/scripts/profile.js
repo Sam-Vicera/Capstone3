@@ -1,28 +1,28 @@
-let profileService 
-let postService
+// let profileService 
+// let postService
 
-document.addEventListener("DOMContentLoaded", () => {
-    profileService = new ProfileService()
-    postService = new PostService()
+// document.addEventListener("DOMContentLoaded", () => {
+//     profileService = new ProfileService()
+//     postService = new PostService()
 
-    loadProfile()
-})
+//     loadProfile()
+// })
 
-function loadProfile() {
-    profileService.getAll()
-                    .then(posts => {
-                        displayPosts(posts)
-                    })
-}
+// function loadProfile() {
+//     profileService.getAll()
+//                     .then(posts => {
+//                         displayPosts(posts)
+//                     })
+// }
 
-function postsTemplate() {
-    document.getElementById("postsDisplay").innerHTML = ""
+// function postsTemplate() {
+//     document.getElementById("postsDisplay").innerHTML = ""
 
-    posts.forEach(category => {
-        displayPosts(posts)
-    });
-}
+//     posts.forEach(category => {
+//         displayPosts(posts)
+//     });
+// }
 
-function displayPosts(posts) {
+// function displayPosts(posts) {
     
-}
+// }
