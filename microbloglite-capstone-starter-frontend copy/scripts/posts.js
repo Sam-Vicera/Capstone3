@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutBtn = document.getElementById("logoutBtn");
     logoutBtn.addEventListener("click", authService.logout);
 
-    displayBlogPosts();
+    fetchPosts();
 })
 
 const galleryContainer = document.querySelector('.gallery-container');
@@ -85,16 +85,34 @@ function closeNav() {
     document.querySelector('#sidepanel').style.width = '0';
 }
 
-function displayBlogPosts() {
-    let posts;
 
-    postService.getAll().then(data => {
-        posts = data;
-        console.log(posts);
-    })
+async function fetchPosts() {
+    await postService.getAll().then(data => {
+        const posts = data;
+        displayBlogPosts(posts)
+    });
 }
 
-function addBlogPost() {
+
+function displayBlogPosts(posts) {
+    for (let i = 1; i < 6; i++) {
+        addBlogPost(posts, i);
+    }
+}
+
+function addBlogPost(posts, postNumber) {
+    let currentUserNameValue = document.getElementById(`usernameContainer${postNumber}`).innerText;
+    let currentPostTitle = document.getElementById(`blogPost${postNumber}Title`).innerText;
+    let currentPostText = document.getElementById(`blogPost${postNumber}Text`).innerText;
+    let currentPostTime = document.getElementById(`blogPost${postNumber}TimeDisplay`).innerText;
     
+    let currentPost = posts[postNumber];
+    
+    currentUserNameValue = `From User:${currentPost.username}`;
+    currentPostTitle = currentPost._id;
+    currentPostText = currentPost.text;
+    let currentPostDate = currentPost.createdAt.substring("2024","T");
+    let currentPostHour = currentPost.createdAt.substring("T", -1);
+    currentPostTime = `${currentPostDate}, ${currentPostHour}`;
 }
 
