@@ -29,4 +29,21 @@ class PostService extends ServicesBase
         return fetch(this.baseUrl, requestInfo).then(response => response.json())
     }
 
+    async addPost(postMessage) {
+        const post = {
+            text: postMessage,
+            username: sessionStorage.username
+        }
+        const token = sessionStorage.token;
+        const requestInfo = {
+            method: "POST",
+            body: JSON.stringify(post),
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-type": "application/json;charset=UTF-8"}
+
+        }
+        return fetch(this.baseUrl, requestInfo).then(response => response.json())
+    }
+
 }
