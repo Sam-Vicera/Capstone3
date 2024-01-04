@@ -120,8 +120,13 @@ class AuthService
                 // browser side of logging out (below) even if there is an 
                 // error with the fetch request above.
                 sessionStorage.clear();
+
                
                 window.location.assign("/Capstone3/microbloglite-capstone-starter-frontend%20copy/index.html")  // redirect back to landing page
+
+                window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
+                window.location.assign("../index.html")  // redirect back to landing page
+
             })
     }
 }

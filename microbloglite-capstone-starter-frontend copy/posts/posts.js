@@ -1,6 +1,21 @@
 /* Posts Page JavaScript */
 "use strict";
 
+let servicesBase;
+let authService;
+let postService;
+
+document.addEventListener("DOMContentLoaded", () => {
+    servicesBase = new ServicesBase();
+    authService = new AuthService();
+    postService = new PostService();
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", authService.logout());
+
+    displayBlogPosts();
+})
+
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
 const galleryControls = ['previous', 'next'];
@@ -55,9 +70,9 @@ class Carousel {
     }
 }
 
-const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-exampleCarousel.setControls();
-exampleCarousel.useControls();
+const ourCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
+ourCarousel.setControls();
+ourCarousel.useControls();
 
 /* Sidepanel Functionality */
 function openNav() {
@@ -66,3 +81,16 @@ function openNav() {
 function closeNav() {
     document.querySelector('#sidepanel').style.width = '0';
 }
+
+function displayBlogPosts() {
+    let posts;
+    postService.getAll().then(data => {
+        posts = data;
+        console.log(posts);
+    })
+}
+
+function addBlogPost() {
+    
+}
+

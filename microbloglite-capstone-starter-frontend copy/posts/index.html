@@ -17,7 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
     <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../styles/global.css">
+
+    <!-- Google Fonts, Share Tech Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./posts.css">
@@ -25,21 +30,20 @@
     <title>/POSTS</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    
-    <script src="../services/services-base.js"></script>
-    <script src="../services/auth-service.js"></script>
-    <script src="../services/posts-service.js"></script>
+    <script src="../scripts/services/services-base.js"></script>
+    <script src="../scripts/services/auth-service.js"></script>
+    <script src="../scripts/services/posts-service.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
     </script>
 </head>
 <body>
-    <!-- Placeholder Bootstrap Navbar, converting to vertical alignment -->
+    <!-- Sidepanel Navigation -->
     <header>
         <div class="sidepanel" id="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="./profile.html"><i class="fa-regular fa-user me-3"></i>Profile</a>
-            <a href="./index.html"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Logout</a>
+            <a href="../profile.html"><i class="fa-regular fa-user me-3"></i>Profile</a>
+            <button id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Logout</a>
         </div>
         <button class="openbtn" onclick="openNav()">&#9776;</button>
         <h1 class="display-1 text-center">Binary Bloggers</h1>
@@ -48,40 +52,50 @@
     <main>
         <div class="gallery">
            <div class="gallery-container">
-                <div class="gallery-item gallery-item-1 card text-center mb-3" style="width: 18rem;" data-index="1">
+                <div class="gallery-item gallery-item-1 card border-primary text-center mb-3" style="width: 18rem;" data-index="1">
+                    <div id="usernameContainer1" class="card-header">Username</div>
                     <div class="card-body">
-                        <h5 class="card-title">Binary Bloggers</h5>
-                        <p class="card-text">We're the best!</p>
-                        <a href="#" class="btn btn-primary">Read about us!</a>
+                        <h5 id="blogPost1Title" class="card-title">Binary Bloggers</h5>
+                        <p id="blogPost1Text" class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-outline-primary">Read about us!</a>
                     </div>
+                    <div id="blogPost1TimeDisplay" class="card-footer">Time Created: </div>
                 </div>
-                <div class="gallery-item gallery-item-2 card text-center mb-3" style="width: 18rem;" data-index="2">
+                <div class="gallery-item gallery-item-2 card border-primary text-center mb-3" style="width: 18rem;" data-index="2">
+                    <div id="usernameContainer2" class="card-header">Username</div>
                     <div class="card-body">
-                        <h5 class="card-title">Binary Bloggers</h5>
-                        <p class="card-text">We're the best!</p>
-                        <a href="#" class="btn btn-primary">Read about us!</a>
+                        <h5 id="blogPost2Title" class="card-title">Binary Bloggers</h5>
+                        <p id="blogPost2Text" class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-outline-primary">Read about us!</a>
                     </div>
+                    <div id="blogPost2TimeDisplay" class="card-footer">Time Created: </div>
                 </div>
-                <div class="gallery-item gallery-item-3 card text-center mb-3" style="width: 18rem;" data-index="3">
+                <div class="gallery-item gallery-item-3 card border-primary text-center mb-3" style="width: 18rem;" data-index="3">
+                    <div id="usernameContainer3" class="card-header">Username</div>
                     <div class="card-body">
-                        <h5 class="card-title">Binary Bloggers</h5>
-                        <p class="card-text">We're the best!</p>
-                        <a href="#" class="btn btn-primary">Read about us!</a>
+                        <h5 id="blogPost3Title" class="card-title">Binary Bloggers</h5>
+                        <p id="blogPost3Text" class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-outline-primary">Read about us!</a>
                     </div>
+                    <div id="blogPost3TimeDisplay" class="card-footer">Time Created: </div>
                 </div>
-                <div class="gallery-item gallery-item-4 card text-center mb-3" style="width: 18rem;" data-index="4">
+                <div class="gallery-item gallery-item-4 card border-primary text-center mb-3" style="width: 18rem;" data-index="4">
+                    <div id="usernameContainer4" class="card-header">Username</div>
                     <div class="card-body">
-                        <h5 class="card-title">Binary Bloggers</h5>
-                        <p class="card-text">We're the best!</p>
-                        <a href="#" class="btn btn-primary">Read about us!</a>
+                        <h5 id="blogPost4Title" class="card-title">Binary Bloggers</h5>
+                        <p id="blogPost4Text" class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-outline-primary">Read about us!</a>
                     </div>
+                    <div id="blogPost4TimeDisplay" class="card-footer">Time Created: </div>
                 </div>
-                <div class="gallery-item gallery-item-5 card text-center mb-3" style="width: 18rem;" data-index="5">
+                <div class="gallery-item gallery-item-5 card border-primary text-center mb-3" style="width: 18rem;" data-index="5">
+                    <div id="usernameContainer5" class="card-header">Username</div>
                     <div class="card-body">
-                        <h5 class="card-title">Binary Bloggers</h5>
-                        <p class="card-text">We're the best!</p>
-                        <a href="#" class="btn btn-primary">Read about us!</a>
+                        <h5 id="blogPost5Title" class="card-title">Binary Bloggers</h5>
+                        <p id="blogPost5Text" class="card-text">We're the best!</p>
+                        <a href="#" class="btn btn-outline-primary">Read about us!</a>
                     </div>
+                    <div id="blogPost5TimeDisplay" class="card-footer">Time Created: </div>
                 </div>
             </div>
             <div class="gallery-controls"></div> 

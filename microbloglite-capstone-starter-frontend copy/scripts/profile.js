@@ -1,3 +1,4 @@
+
 let profileService;
 let authService; 
 
@@ -13,21 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-function loadProfile() {
-    profileService.getAll()
-                    .then(posts => {
-                        displayPosts(posts)
-                    })
-}
+// let profileService 
+// let postService
 
-function displayPosts() {
-    document.getElementById("postsDisplay").innerHTML = ""
+// document.addEventListener("DOMContentLoaded", () => {
+//     profileService = new ProfileService()
+//     postService = new PostService()
 
-    posts.forEach(category => {
-        displayPosts(posts)
-    });
-}
+//     loadProfile()
+// })
 
-function displayPosts(posts) {
+
+// function loadProfile() {
+//     profileService.getAll()
+//                     .then(posts => {
+//                         displayPosts(posts)
+//                     })
+// }
+
+// function postsTemplate() {
+//     document.getElementById("postsDisplay").innerHTML = ""
+
+//     posts.forEach(category => {
+//         displayPosts(posts)
+//     });
+// }
+
+// function displayPosts(posts) {
     
-}
+// }
