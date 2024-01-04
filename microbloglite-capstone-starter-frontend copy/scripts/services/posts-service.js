@@ -9,12 +9,24 @@ class PostService extends ServicesBase
     }
 
     async getAll() {
-        return fetch(this.apiBaseUrl).then(response => response.json())
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.token}`
+            }
+        }
+        return fetch(this.apiBaseUrl, requestInfo).then(response => response.json())
     }
 
     async getById(postId) {
         let url = `${this.apiBaseUrl}/${postId}`;
-        return fetch(url).then(response => response.json())
+
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.token}`
+            }
+        }
+
+        return fetch(url, requestInfo).then(response => response.json())
     }
 
     async getPostsByUser() {
@@ -26,7 +38,7 @@ class PostService extends ServicesBase
                 "Authorization": `Bearer ${token}`
             }
         }
-        return fetch(this.baseUrl, requestInfo).then(response => response.json())
+        return fetch(url, requestInfo).then(response => response.json())
     }
 
     async addPost(postMessage) {
@@ -43,7 +55,7 @@ class PostService extends ServicesBase
                 "Content-type": "application/json;charset=UTF-8"}
 
         }
-        return fetch(this.baseUrl, requestInfo).then(response => response.json())
+        return fetch(this.apiBaseUrl, requestInfo).then(response => response.json())
     }
 
 }
