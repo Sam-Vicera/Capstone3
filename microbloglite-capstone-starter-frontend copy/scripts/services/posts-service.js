@@ -1,19 +1,25 @@
 
 class PostService extends ServicesBase
 {
-
     apiBaseUrl = ""
-
-    constructor()
-    {
-        super()
-        this.apiBaseUrl = this.baseUrl + "/api/posts"
+  
+    constructor() {
+        super();
+        this.apiBaseUrl = this.baseUrl + "/api/posts";
     }
 
-    getPostsByUser()
-    {
-        const token = sessionStorage.token
-        const url = this.apiBaseUrl + "?username=" + sessionStorage.username
+    async getAll() {
+        return fetch(this.apiBaseUrl).then(response => response.json())
+    }
+
+    async getById(postId) {
+        let url = `${this.apiBaseUrl}/${postId}`;
+        return fetch(url).then(response => response.json())
+    }
+
+    async getPostsByUser() {
+        const token = sessionStorage.token;
+        const url = this.apiBaseUrl + "?username=" + sessionStorage.username;
 
         const requestInfo = {
             headers: {
