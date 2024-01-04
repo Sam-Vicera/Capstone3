@@ -1,7 +1,9 @@
 let profileService 
+let postService
 
 document.addEventListener("DOMContentLoaded", () => {
     profileService = new ProfileService()
+    postService = new PostService()
 
     loadProfile()
 })
@@ -13,7 +15,7 @@ function loadProfile() {
                     })
 }
 
-function displayPosts() {
+function postsTemplate() {
     document.getElementById("postsDisplay").innerHTML = ""
 
     posts.forEach(category => {

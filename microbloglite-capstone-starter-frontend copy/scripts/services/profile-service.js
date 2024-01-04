@@ -1,5 +1,5 @@
 class ProfileService {
-    baseUrl = "http://localhost:5000"
+    baseUrl = "http://microbloglite.us-east-2.elasticbeanstalk.com/"
 
     async getAll() {
         return fetch(this.baseUrl).then(response => response.json())
