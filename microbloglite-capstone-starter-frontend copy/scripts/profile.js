@@ -14,3 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+    saveButton.addEventListener("click",(newPost))
+})
+
+async function newPost(){
+    const text = document.getElementById("textBox").value
+
+    const post = {
+        "text": text
+    } 
+
+    location.href = "/profile.html"
+}
