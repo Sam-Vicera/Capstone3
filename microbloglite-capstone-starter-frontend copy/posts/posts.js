@@ -4,11 +4,14 @@
 let servicesBase;
 let authService;
 let postService;
+let userLoginData;
 
 document.addEventListener("DOMContentLoaded", () => {
     servicesBase = new ServicesBase();
     authService = new AuthService();
     postService = new PostService();
+
+    userLoginData = authService.getLoginData();
 
     const logoutBtn = document.getElementById("logoutBtn");
     logoutBtn.addEventListener("click", authService.logout());
@@ -84,6 +87,9 @@ function closeNav() {
 
 function displayBlogPosts() {
     let posts;
+
+    userLoginData;
+
     postService.getAll().then(data => {
         posts = data;
         console.log(posts);
