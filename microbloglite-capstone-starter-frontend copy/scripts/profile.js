@@ -12,18 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
     logOutButton.addEventListener("click",() =>{
         authService.logout();
     })
+
+    loadPosts()
 })
 
-document.addEventListener("DOMContentLoaded", () => {
-    saveButton.addEventListener("click",(newPost))
-})
 
-async function newPost(){
-    const text = document.getElementById("textBox").value
+async function addNewClick(){ 
 
-    const post = {
-        "text": text
-    } 
+    location.href = "./newPost.html"
+}
 
-    location.href = "/profile.html"
+async function loadPosts()
+{
+    const posts = await postService.getPostsByUser();
+
+    console.log(posts);
 }
