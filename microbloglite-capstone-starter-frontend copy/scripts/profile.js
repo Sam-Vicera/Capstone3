@@ -1,10 +1,10 @@
 
-let profileService;
+let postService;
 let authService; 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    profileService = new ProfileService()
+    postService = new PostService()
     authService = new AuthService();
     let logOutButton = document.getElementById('profileLogOut')
 
@@ -14,32 +14,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-// let profileService 
-// let postService
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     profileService = new ProfileService()
-//     postService = new PostService()
-
-//     loadProfile()
-// })
-
-
-// function loadProfile() {
-//     profileService.getAll()
-//                     .then(posts => {
-//                         displayPosts(posts)
-//                     })
-// }
-
-// function postsTemplate() {
-//     document.getElementById("postsDisplay").innerHTML = ""
-
-//     posts.forEach(category => {
-//         displayPosts(posts)
-//     });
-// }
-
-// function displayPosts(posts) {
-    
-// }
