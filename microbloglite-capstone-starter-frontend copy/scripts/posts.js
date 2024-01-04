@@ -108,7 +108,8 @@ function addBlogPost(posts, postNumber) {
     
     let currentPost = posts[postNumber];
     
-    currentUserNameValue = `From User:${currentPost.username}`;
+    currentUserNameValue.innerText = "";
+    `From User:${currentPost.username}`;
     currentPostTitle = currentPost._id;
     currentPostText = currentPost.text;
     let currentPostDate = currentPost.createdAt.substring("2024","T");
