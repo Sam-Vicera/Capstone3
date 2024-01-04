@@ -57,15 +57,9 @@ class AuthService
                 if(loginData.token){
                    sessionStorage.token = loginData.token
                 sessionStorage.username = loginData.username
-
-                // window.localStorage.setItem("login-data", JSON.stringify(loginData))
                 
                 
                 window.location.assign("/profile.html")  // redirect
-             
-                
-                
-                window.location.assign("/Capstone3/microbloglite-capstone-starter-frontend%20copy/profile.html")  // redirect
 
                 return loginData 
                 }
@@ -127,12 +121,6 @@ class AuthService
                 
                 // window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
                 window.location.assign("/index.html")  // redirect back to landing page
-
-               
-                window.location.assign("/Capstone3/microbloglite-capstone-starter-frontend%20copy/index.html")  // redirect back to landing page
-
-                window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
-                window.location.assign("../index.html")  // redirect back to landing page
 
             })
     }
