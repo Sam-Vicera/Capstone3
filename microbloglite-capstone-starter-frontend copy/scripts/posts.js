@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     userLoginData = authService.getLoginData();
 
     const logoutBtn = document.getElementById("logoutBtn");
-    logoutBtn.addEventListener("click", authService.logout());
+    logoutBtn.addEventListener("click", authService.logout);
 
     displayBlogPosts();
 })
@@ -87,8 +87,6 @@ function closeNav() {
 
 function displayBlogPosts() {
     let posts;
-
-    userLoginData;
 
     postService.getAll().then(data => {
         posts = data;
