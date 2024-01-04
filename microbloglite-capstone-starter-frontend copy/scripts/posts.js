@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     userLoginData = authService.getLoginData();
 
     const logoutBtn = document.getElementById("logoutBtn");
-    logoutBtn.addEventListener("click", authService.logout);
-
+    logoutBtn.addEventListener("click", () => {
+        authService.logout();
+    })
     fetchPosts();
 })
 
