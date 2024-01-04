@@ -16,8 +16,10 @@ class AuthService
     // and token, or an empty object if the visitor is not logged in.
     getLoginData()
     {
-        const loginJSON = window.localStorage.getItem("login-data")
-        return JSON.parse(loginJSON) || {}
+        // const loginJSON = window.localStorage.getItem("login-data")
+        const token = sessionStorage.getItem("token")
+        const username = sessionStorage.getItem("username")
+        return {token, username}  || {}
     }
 
 
@@ -56,10 +58,10 @@ class AuthService
                    sessionStorage.token = loginData.token
                 sessionStorage.username = loginData.username
 
-                window.localStorage.setItem("login-data", JSON.stringify(loginData))
+             
                 
                 
-                window.location.assign("http://127.0.0.1:5500/Capstone3/microbloglite-capstone-starter-frontend%20copy/profile.html")  // redirect
+                window.location.assign("/Capstone3/microbloglite-capstone-starter-frontend%20copy/profile.html")  // redirect
 
                 return loginData 
                 }
@@ -92,9 +94,10 @@ class AuthService
     // which you may include in various pages in your app. Again, READ this
     // function and you will probably want to re-use parts of it for other
     // `fetch()` requests you may need to write.
+    
     async logout()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
 
         // GET /auth/logout
         const options = {
@@ -108,7 +111,7 @@ class AuthService
             },
         }
 
-        fetch(apiBaseURL + "/auth/logout", options)
+        fetch(this.apiBaseURL + "/auth/logout", options)
             .then(response => response.json())
             .then(data => console.log(data))
             .finally(() =>
@@ -117,8 +120,8 @@ class AuthService
                 // browser side of logging out (below) even if there is an 
                 // error with the fetch request above.
                 sessionStorage.clear();
-                window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
-                window.location.assign("/index.html")  // redirect back to landing page
+               
+                window.location.assign("/Capstone3/microbloglite-capstone-starter-frontend%20copy/index.html")  // redirect back to landing page
             })
     }
 }

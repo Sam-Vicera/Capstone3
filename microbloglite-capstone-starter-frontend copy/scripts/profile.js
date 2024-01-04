@@ -1,9 +1,16 @@
-let profileService 
+let profileService;
+let authService; 
+
 
 document.addEventListener("DOMContentLoaded", () => {
     profileService = new ProfileService()
+    authService = new AuthService();
+    let logOutButton = document.getElementById('profileLogOut')
 
-    loadProfile()
+    // loadProfile()
+    logOutButton.addEventListener("click",() =>{
+        authService.logout();
+    })
 })
 
 function loadProfile() {
