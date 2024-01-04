@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     userLoginData = authService.getLoginData();
 
     const logoutBtn = document.getElementById("logoutBtn");
-    logoutBtn.addEventListener("click", authService.logout);
-
+    logoutBtn.addEventListener("click", () => {
+        authService.logout();
+    })
     fetchPosts();
 })
 
@@ -101,19 +102,24 @@ function displayBlogPosts(posts) {
 }
 
 function addBlogPost(posts, postNumber) {
-    let currentUserNameValue = document.getElementById(`usernameContainer${postNumber}`).innerText;
-    let currentPostTitle = document.getElementById(`blogPost${postNumber}Title`).innerText;
-    let currentPostText = document.getElementById(`blogPost${postNumber}Text`).innerText;
-    let currentPostTime = document.getElementById(`blogPost${postNumber}TimeDisplay`).innerText;
+    let userNameTextDisplay = document.getElementById(`usernameContainer${postNumber}`);
+    let postTitleDisplay = document.getElementById(`blogPost${postNumber}Title`);
+    let postTextDisplay = document.getElementById(`blogPost${postNumber}Text`);
+    let postTimeDisplay = document.getElementById(`blogPost${postNumber}TimeDisplay`);
     
-    let currentPost = posts[postNumber];
+
+    const currentPost = posts[postNumber];
     
-    currentUserNameValue.innerText = "";
-    `From User:${currentPost.username}`;
-    currentPostTitle = currentPost._id;
-    currentPostText = currentPost.text;
-    let currentPostDate = currentPost.createdAt.substring("2024","T");
-    let currentPostHour = currentPost.createdAt.substring("T", -1);
-    currentPostTime = `${currentPostDate}, ${currentPostHour}`;
+    const updatedUserNameValue = `From User:${currentPost.username}`;
+    const updatedPostTitle = `Post ID: ${currentPost._id}`;
+    const updatedPostText = currentPost.text;
+    const postDate = currentPost.createdAt.substring(0,10);
+    const postHour = currentPost.createdAt.substring(11, 19);
+    const updatedPostTime = `${postHour}, ${postDate}`;
+
+    userNameTextDisplay.innerText = updatedUserNameValue;
+    postTitleDisplay.innerText = updatedPostTitle;
+    postTextDisplay.innerText = updatedPostText;
+    postTimeDisplay.innerText = updatedPostTime;
 }
 
