@@ -19,7 +19,14 @@ class PostService extends ServicesBase
 
     async getById(postId) {
         let url = `${this.apiBaseUrl}/${postId}`;
-        return fetch(url).then(response => response.json())
+
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.token}`
+            }
+        }
+
+        return fetch(url, requestInfo).then(response => response.json())
     }
 
     async getPostsByUser() {
