@@ -27,7 +27,7 @@ class AuthService
     // logged in. It returns either `true` or `false`.
     isLoggedIn()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
         return Boolean(loginData.token)
     }
 
