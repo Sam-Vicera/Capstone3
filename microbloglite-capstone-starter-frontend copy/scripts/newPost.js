@@ -6,7 +6,7 @@ let authService;
 document.addEventListener("DOMContentLoaded", () => {
     postService = new PostService()
     authService = new AuthService();
-    let logOutButton = document.getElementById('profileLogOut')
+    let logOutButton = document.getElementById('logoutBtn')
     let saveButton = document.getElementById('saveButton')
 
     saveButton.addEventListener("click",newPost)
@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     logOutButton.addEventListener("click",() =>{
         authService.logout();
     })
+
+ 
+
 })
 
 async function newPost(event){
@@ -27,3 +30,10 @@ async function newPost(event){
     location.href = "./profile.html"
 }
 
+   /* Sidepanel Functionality */
+   function openNav() {
+    document.querySelector('#sidepanel').style.width = '250px';
+}
+function closeNav() {
+    document.querySelector('#sidepanel').style.width = '0';
+}

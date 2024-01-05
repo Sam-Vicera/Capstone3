@@ -1,3 +1,4 @@
+
 let postService;
 let authService; 
 
@@ -5,11 +6,17 @@ let authService;
 document.addEventListener("DOMContentLoaded", () => {
     postService = new PostService();
     authService = new AuthService();
-    let logOutButton = document.getElementById('logoutBtn');
+    
+    const logOutButton = document.getElementById('logoutBtn');
+    const newPostButton = document.getElementById('newPostBtn') ;
 
     logOutButton.addEventListener("click",() => {
         authService.logout();
     })
+
+    newPostButton.addEventListener("click", () => {
+        addNewClick();
+    });
 
     loadPosts();
 })
@@ -24,7 +31,7 @@ function closeNav() {
 
 
 async function addNewClick(){ 
-    location.href = "./newPost.html"
+    location.href = "/newPost.html"
 }
 
 async function loadPosts()
