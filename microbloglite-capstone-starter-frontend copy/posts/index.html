@@ -27,14 +27,13 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./posts.css">
 
-    <title>/POSTS</title>
+    <title>Blog Posts</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="../scripts/services/services-base.js"></script>
-    <script src="../scripts/services/auth-service.js"></script>
-    <script src="../scripts/services/posts-service.js"></script>
+    <script src="/scripts/services/services-base.js"></script>
+    <script src="/scripts/services/auth-service.js"></script>
+    <script src="/scripts/services/posts-service.js"></script>
    
-    
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
     </script>
@@ -44,7 +43,7 @@
     <header>
         <div class="sidepanel" id="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="../profile.html"><i class="fa-regular fa-user me-3"></i>Profile</a>
+            <a href="/profile.html"><i class="fa-regular fa-user me-3"></i>Profile</a>
             <button id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Logout</a>
         </div>
         <button class="openbtn" onclick="openNav()">&#9776;</button>
