@@ -6,6 +6,12 @@ let authService;
 document.addEventListener("DOMContentLoaded", () => {
     postService = new PostService()
     authService = new AuthService();
+
+    let loginCheck = authService.isLoggedIn();
+    if (loginCheck === false){
+        window.location.assign("/index.html")
+    }
+    
     let logOutButton = document.getElementById('logoutBtn')
     let saveButton = document.getElementById('saveButton')
 

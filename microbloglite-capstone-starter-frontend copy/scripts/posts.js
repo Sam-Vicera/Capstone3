@@ -12,7 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     postService = new PostService();
 
     userLoginData = authService.getLoginData();
-
+    
+    let loginCheck = authService.isLoggedIn();
+    if (loginCheck === false){
+        window.location.assign("/index.html")
+    }
+   
     const logoutBtn = document.getElementById("logoutBtn");
     logoutBtn.addEventListener("click", () => {
         authService.logout();
